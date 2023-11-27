@@ -5,7 +5,6 @@
 
 */
 
-
 function networkDelayTime(times, n, k) {
   // Create an adjacency dictionary to store the information of the nodes and their edges.
   const adjacency = new Map();
@@ -16,7 +15,7 @@ function networkDelayTime(times, n, k) {
     adjacency.get(src).push([target, delay]);
   }
 
-  // Use a priority queue to store the nodes and their delay times
+  // priority queue to store the nodes and their delay times
   const priority = [];
 
   //  Initialize the queue with the source node and a delay time of 0.
@@ -34,6 +33,7 @@ function networkDelayTime(times, n, k) {
       a.time - b.time;
     });
 
+    // retrieve 1st in priority queue
     const { node, time } = priority.shift();
 
     if (visited.has(node)) {
