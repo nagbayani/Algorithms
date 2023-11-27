@@ -1,23 +1,28 @@
 function removeNthLastNode(head, n) {
-  let left = head;
+  // Point two pointers, right and left, at head.
   let right = head;
-  let count = 0;
-  while (count < n) {
+  let left = head;
+
+  // Move right pointer n elements away from the left pointer.
+  for (let i = 0; i < n; i++) {
     right = right.next;
-    count++;
   }
 
-  while (right !== null && right.next !== null) {
+  // Removal of the head node.
+  if (!right) {
+    return head.next;
+  }
+
+  // Move both pointers until right pointer reaches the last node.
+  while (right.next != null) {
+    right = right.next;
     left = left.next;
-    right = right.next;
-  }
-  if (left === head) {
-    head = head.next;
-  } else {
-    left.next = left.next.next;
   }
 
-  // Replace this placeholder return statement with your code
+  // At this point, left pointer points to (n-1)th element.
+  // So link it to next to next element of left.
+  left.next = left.next.next;
+
   return head;
 }
 
