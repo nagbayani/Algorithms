@@ -23,3 +23,32 @@ export function findMaxSlidingWindow(nums, w) {
   }
   return output;
 }
+
+export function bestFindMaxSlidingWindow(nums, w) {
+  const deque = new Deque();
+  const output = [];
+
+  // Function to remove elements from the deque that are out of the current window range
+  const cleanDeque = (index) => {
+    while (!deque.isEmpty() && deque.peekFront() <= index - w) {
+      deque.shift();
+    }
+  };
+
+  for (let i = 0; i < nums.length; i++) {
+    cleanDeque(i);
+
+    // Add current index to the deque while maintaining decreasing order of values
+    while (!deque.isEmpty() && nums[i] >= nums[deque.peekBack()]) {
+      deque.pop();
+    }
+    deque.push(i);
+
+    // Add maximum value of current window to the output array
+    if (i >= w - 1) {
+      output.push(nums[deque.peekFront()]);
+    }
+  }
+
+  return output;
+}
