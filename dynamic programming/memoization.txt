@@ -1,0 +1,7 @@
+Memoization Definition:
+  - Optimization technique that stores computation results in a cache -> retrieves that same information from the cache the next time it's needed 
+    - Store function output in cache, make the function if each required computation is in the cache before computing it.
+
+Memoization relies on Two Concepts: 
+  1.  Closures: combination of a function and the environment within which that function wasdeclared
+  2.  Higher Order Functions:  Functions that operate on other functions (Takes them as an argument or returns them)

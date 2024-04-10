@@ -10,7 +10,6 @@ export function TopDownfindMaxKnapsackProfit(capacity, weights, values) {
     Array(capacity + 1).fill(-1)
   );
 
-  // Replace this placeholder return statement with your code
   return tpTableBuilder(capacity, weights, values, n, table);
 }
 
