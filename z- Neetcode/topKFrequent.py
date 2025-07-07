@@ -54,9 +54,6 @@ stop = ends before that value
 for i in range(array_length, 0, -1) => start from end of array, stop at 1, descend
 for i in range(N-1, -1, -1) => start at last index of array, stop at 0, descend
 
-
-
-
 '''
 
 
